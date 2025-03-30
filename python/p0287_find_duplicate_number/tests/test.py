@@ -1,9 +1,12 @@
-import pytest
 import importlib
+import json
+import pytest
+
 from pathlib import Path
 
 TESTS_DIR = Path(__file__).parent
 SOLUTIONS_DIR = TESTS_DIR.parent / "solutions"
+TEST_CASES_FILE = TESTS_DIR / "test_cases.json"
 
 
 SOLUTION_MODULES = [
@@ -12,23 +15,27 @@ SOLUTION_MODULES = [
     if not file.stem.startswith("__")
 ]
 
+def load_test_cases():
+    """Load test cases from json"""
+    with open(TEST_CASES_FILE, "r") as file:
+        return json.load(file)
 
-TEST_CASES = [
-    # LeetCode cases
-    ([1, 3, 4, 2, 2], 2),
-    ([3, 1, 3, 4, 2], 3),
-    ([3, 3, 3, 3, 3], 3),
-    # Minimal case
-    ([1, 1], 1)
-]
+TEST_CASES = load_test_cases()
 
 
 @pytest.mark.parametrize("module_name", SOLUTION_MODULES)
-@pytest.mark.parametrize("nums, expected", TEST_CASES)
-def test_find_duplicate(module_name, nums, expected):
+@pytest.mark.parametrize("test_case", TEST_CASES)
+def test_find_duplicate(module_name, test_case):
     module = importlib.import_module(module_name)
     solution = module.Solution()
-    assert solution.findDuplicate(nums) == expected
+
+    nums = test_case["input"]
+    expected = test_case["expected"]
+    result = solution.findDuplicate(nums)
+
+    print(f"Testing solution: {module_name}")
+    print(f"Input: {nums}, Expected: {expected}, Actual: {result}")
+    assert result == expected
 
 
 if __name__ == '__main__':
