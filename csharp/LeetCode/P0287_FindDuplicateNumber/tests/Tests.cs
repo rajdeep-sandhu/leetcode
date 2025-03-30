@@ -1,36 +1,54 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using Newtonsoft.Json;
 
 namespace P0287_FindDuplicateNumber.Tests
 {
+    public class TestCase
+    {
+        public int[] input { get; set; } = Array.Empty<int>();
+        public int expected { get; set; }
+    }
+
     [TestFixture]
     public class Tests
     {
-        private static readonly List<(int[] nums, int expected)> testCases = new()
+        private static readonly string TestCasesFile = Path.Combine(
+            Path.GetDirectoryName(typeof(Tests).Assembly.Location) ?? "",
+            "P0287_FindDuplicateNumber",
+            "tests",
+            "test_cases.json"
+            );
+        
+        private static List<TestCase> LoadTestCases()
         {
-            // LeetCode cases
-            (new int[] { 1, 3, 4, 2, 2 }, 2),
-            (new int[] { 3, 1, 3, 4, 2 }, 3),
-            (new int[] { 3, 3, 3, 3, 3 }, 3),
-            // Minimal case
-            (new int[] { 1, 1, 2 }, 1),
-        };
+            if (!File.Exists(TestCasesFile))
+                throw new FileNotFoundException($"Test cases file not found: {TestCasesFile}");
+            
+            string json = File.ReadAllText(TestCasesFile);
+            return JsonConvert.DeserializeObject<List<TestCase>>(json) ?? new List<TestCase>();
+        }
+
+        private static readonly List<TestCase> testCases = LoadTestCases();
 
         private List<dynamic?> _solutions = new();
-        
+
         [OneTimeSetUp]
         public void Setup()
         {
-            // Dynamically find all classes names=d Solution in the solutions folder.
+            // Dynamically find all classes named Solution in the solutions folder.
             var assembly = Assembly.GetExecutingAssembly()
-                ?? throw new InvalidOperationException("Could not get executing assembly");;
+                ?? throw new InvalidOperationException("Could not get executing assembly");
+            
             var solutionTypes = assembly.GetTypes()
                 .Where(t => t.Name == "Solution" && t.IsClass && !t.IsAbstract && t.Namespace != null
                         && t.GetMethod("FindDuplicate") != null)
                 .ToList();
-            
+
             if (!solutionTypes.Any())
                 throw new InvalidOperationException("No Solution classes found");
 
@@ -41,17 +59,20 @@ namespace P0287_FindDuplicateNumber.Tests
 
         [Test]
         [TestCaseSource(nameof(testCases))]
-        public void TestFindDuplicateNumber((int[] nums, int expected) testCase)
+        public void TestFindDuplicateNumber(TestCase testCase)
         {
             foreach (var solution in _solutions)
             {
                 Assert.That(solution, Is.Not.Null, "Solution instance should not be null");
-                // string solutionName = solution.GetType().Namespace?.Split('.').Last();                
+
+                int result = solution!.FindDuplicate(testCase.input);
+                string outputMessage = $"Input: [{string.Join(", ", testCase.input)}], Expected: {testCase.expected}, Actual: {result}";
+
                 TestContext.Out.WriteLine($"Testing {solution}");
-                TestContext.Out.WriteLine($"Input: [{string.Join(", ", testCase.nums)}], Expected: {testCase.expected}, Actual: {solution.FindDuplicate(testCase.nums)}");
-                int result = solution!.FindDuplicate(testCase.nums);
+                TestContext.Out.WriteLine(outputMessage);
+                
                 Assert.That(result, Is.EqualTo(testCase.expected),
-                    $"Solution {solution.GetType().Name}: failed for input [{string.Join(", ", testCase.nums)}], Expected = {testCase.expected}, Actual = {result}");
+                    $"Solution {solution.GetType().Name}: failed for {outputMessage}");
             }
         }
     }
