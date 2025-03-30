@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +19,13 @@
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  <!-- Include all test files in problem subfolders. Required for json files to be read. -->
+  <ItemGroup>
+    <Compile Include="**\Solutions\*.cs" />
+    <Compile Include="**\Tests\*.cs" />
+    <None Include="**\Tests\*.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
