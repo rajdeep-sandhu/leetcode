@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "p0287_find_duplicate_number"
+]
+resolver = "2"
