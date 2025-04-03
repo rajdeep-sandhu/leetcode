@@ -1,4 +1,3 @@
-using System.Globalization;
 using System.Numerics;
 
 namespace P0287_FindDuplicateNumber.BitManipulation;
