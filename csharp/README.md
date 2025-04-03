@@ -24,6 +24,7 @@ dotnet build
 
 ```shell
 dotnet test
+dotnet test -v d
 dotnet test --logger "console;verbosity=detailed"
 ```
 
