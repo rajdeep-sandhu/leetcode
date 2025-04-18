@@ -1,4 +1,4 @@
-namespace P0287_FindDuplicateNumber.BruteForce;
+namespace P0287_FindDuplicateNumber.Solutions.BruteForce;
 
 // LeetCode convention: the class is named "Solution"
 public class Solution

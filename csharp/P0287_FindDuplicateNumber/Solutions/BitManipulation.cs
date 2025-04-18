@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace P0287_FindDuplicateNumber.BitManipulation;
+namespace P0287_FindDuplicateNumber.Solutions.BitManipulation;
 
 public class Solution
 {

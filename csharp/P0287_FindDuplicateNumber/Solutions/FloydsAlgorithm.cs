@@ -1,4 +1,4 @@
-namespace P0287_FindDuplicateNumber.FloydsAlgorithm;
+namespace P0287_FindDuplicateNumber.Solutions.FloydsAlgorithm;
 
 public class Solution
 {

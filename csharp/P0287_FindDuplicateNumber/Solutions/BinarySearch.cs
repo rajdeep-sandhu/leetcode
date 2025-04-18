@@ -1,4 +1,4 @@
-namespace P0287_FindDuplicateNumber.BinarySearch;
+namespace P0287_FindDuplicateNumber.Solutions.BinarySearch;
 
 public class Solution
 {
