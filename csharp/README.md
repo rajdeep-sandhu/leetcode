@@ -4,15 +4,22 @@
 
 ```shell
 dotnet new sln -n LeetCode
-dotnet add package NUnit
-
-dotnet new nunit -n LeetCode
-dotnet sln LeetCode.sln add LeetCode/LeetCode.csproj
-dotnet restore
 ```
 
-- Create the problem, solution and test folders and files
-- Run in the LeetCode folder
+- `Directory.Packages.Props` allows centralised dependency management, to prevent the testing framework libraries to be set up for each problem.
+
+### Set up a new problem
+
+```shell
+# From within the root folder csharp
+dotnet new classlib -n P0217_ContainsDuplicate
+```
+
+- Create the `Solutions` and `Test` folders.
+
+### Set up tests for a problem
+
+### Run tests for a problem
 
 ```shell
 dotnet build
