@@ -19,16 +19,15 @@ namespace P0287_FindDuplicateNumber.Tests
     {
         private static readonly string TestCasesFile = Path.Combine(
             Path.GetDirectoryName(typeof(Tests).Assembly.Location) ?? "",
-            "P0287_FindDuplicateNumber",
-            "tests",
+            "Tests",
             "test_cases.json"
             );
-        
+
         private static List<TestCase> LoadTestCases()
         {
             if (!File.Exists(TestCasesFile))
                 throw new FileNotFoundException($"Test cases file not found: {TestCasesFile}");
-            
+
             string json = File.ReadAllText(TestCasesFile);
             return JsonConvert.DeserializeObject<List<TestCase>>(json) ?? new List<TestCase>();
         }
@@ -43,14 +42,26 @@ namespace P0287_FindDuplicateNumber.Tests
             // Dynamically find all classes named Solution in the solutions folder.
             var assembly = Assembly.GetExecutingAssembly()
                 ?? throw new InvalidOperationException("Could not get executing assembly");
-            
+
+            // Get root namespace
+            var testNs = typeof(Tests).Namespace!;
+            var rootNs = testNs.Substring(0, testNs.LastIndexOf("."));
+
             var solutionTypes = assembly.GetTypes()
-                .Where(t => t.Name == "Solution" && t.IsClass && !t.IsAbstract && t.Namespace != null
-                        && t.GetMethod("FindDuplicate") != null)
-                .ToList();
+                .Where(t =>
+                    t.Name == "Solution"
+                    && t.IsClass
+                    && !t.IsAbstract
+                    && t.Namespace != null
+                    && t.Namespace.StartsWith(rootNs + ".Solutions")
+                    && t.GetMethods(BindingFlags.Instance |
+                        BindingFlags.Public |
+                        BindingFlags.DeclaredOnly)
+                        .Length == 1
+                ).ToList();
 
             if (!solutionTypes.Any())
-                throw new InvalidOperationException("No Solution classes found");
+                throw new InvalidOperationException($"No Solution classes found under {rootNs}.Solutions");
 
             _solutions = solutionTypes
                 .Select(t => (dynamic?)Activator.CreateInstance(t))
@@ -59,7 +70,7 @@ namespace P0287_FindDuplicateNumber.Tests
 
         [Test]
         [TestCaseSource(nameof(testCases))]
-        public void TestFindDuplicateNumber(TestCase testCase)
+        public void TestFindDuplicate(TestCase testCase)
         {
             foreach (var solution in _solutions)
             {
@@ -70,7 +81,7 @@ namespace P0287_FindDuplicateNumber.Tests
 
                 TestContext.Out.WriteLine($"Testing {solution}");
                 TestContext.Out.WriteLine(outputMessage);
-                
+
                 Assert.That(result, Is.EqualTo(testCase.expected),
                     $"Solution {solution.GetType().Name}: failed for {outputMessage}");
             }
