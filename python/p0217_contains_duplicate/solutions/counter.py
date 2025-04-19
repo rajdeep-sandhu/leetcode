@@ -4,9 +4,9 @@ from typing import List
 
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        counts = Counter(nums) 
+        freq = Counter(nums) 
         
-        for count in counts.values():
-            if count > 1:
+        for freq in freq.values():
+            if freq > 1:
                 return True
         return False
