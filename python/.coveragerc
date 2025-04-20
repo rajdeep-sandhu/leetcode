@@ -1,0 +1,7 @@
+[coverage:run]
+branch = True
+
+[coverage:report]
+omit =
+    */__init__.py
+    */tests/test_solutions.py
