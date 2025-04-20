@@ -25,7 +25,7 @@ TEST_CASES = load_test_cases()
 
 @pytest.mark.parametrize("module_name", SOLUTION_MODULES)
 @pytest.mark.parametrize("test_case", TEST_CASES)
-def test_find_duplicate(module_name, test_case):
+def test_contains_duplicate(module_name, test_case):
     module = importlib.import_module(module_name)
     solution = module.Solution()
 
