@@ -10,8 +10,14 @@ namespace P0287_FindDuplicateNumber.Tests
 {
     public class TestCase
     {
+        [JsonProperty("case_name")]
+        public string caseName { get; set; } = "Unnamed case";
+
         public int[] input { get; set; } = Array.Empty<int>();
         public int expected { get; set; }
+
+        // Override ToString() to display caseName in test runner output
+        public override string ToString() => caseName;
     }
 
     [TestFixture]
@@ -32,7 +38,7 @@ namespace P0287_FindDuplicateNumber.Tests
             return JsonConvert.DeserializeObject<List<TestCase>>(json) ?? new List<TestCase>();
         }
 
-        private static readonly List<TestCase> testCases = LoadTestCases();
+        private static readonly IEnumerable<TestCase> testCases = LoadTestCases();
 
         private List<dynamic?> _solutions = new();
 
@@ -79,7 +85,7 @@ namespace P0287_FindDuplicateNumber.Tests
                 int result = solution!.FindDuplicate(testCase.input);
                 string outputMessage = $"Input: [{string.Join(", ", testCase.input)}], Expected: {testCase.expected}, Actual: {result}";
 
-                TestContext.Out.WriteLine($"Testing {solution}");
+                TestContext.Out.WriteLine($"Testing {solution} [Case: {testCase.caseName}]");
                 TestContext.Out.WriteLine(outputMessage);
 
                 Assert.That(result, Is.EqualTo(testCase.expected),
