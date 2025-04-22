@@ -1,8 +1,35 @@
 # LeetCode Solutions
 
+## Add a problem
+
+- Create the problem folder
+  
+  ```shell
+  md p0217_contains_duplicate
+  ```
+
+- Add the problem folder to `members` in the `Cargo.toml` in the project root, which is `rust`.
+- Initialise a new `Cargo` library for the problem in the problem folder.
+  
+  ```shell
+  cargo init --lib
+  ```
+
+- Add the required dependencies and dev dependencies to the problem's `Cargo.toml`.
+- Add `build.rs` to the problem folder. Change the function name under `if content.contains("struct Solution")` to the function to be tested.
+
+- In the `src` folder
+  - Add `test_cases.json`.
+  - Add `test.rs`.
+    - Change `Struct TestCase` to match `test_cases.json`.
+    - Change `fn get_solutions() -> Vec<(fn(Vec<i32>) -> bool, &'static str)>` to match the target function's input and output types.
+  - Add the solution to the `src` folder.
+  - Add the solution as a module to `lib.rs` in the `src` folder.
+
 ## Tests
 
 - In Rust, unit tests reside in the `src` folder with the modules they are testing.
+- The default **_fail fast_** approach is used, where a failed asserion causes the test to panic and the test suite stops.
 - These should be run from the problem folder
 - `cargo test`
 - `cargo test --lib`  # Run tests only for the library, without main.rs
@@ -78,3 +105,18 @@
         }
     ]
     ```
+
+## Coverage
+
+```shell
+cargo install cargo-llvm-cov
+
+# Run coverage in the problem folder
+cargo llvm-cov --lcov --output-path lcov.info
+
+# Terminal summary
+cargo llvm-cov
+
+# Detailed html report
+cargo llvm-cov --open
+```
