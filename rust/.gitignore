@@ -19,3 +19,11 @@ Cargo.lock
 
 # Optional: if using RLS
 rls/
+
+# Rust coverage
+coverage/
+target/
+*.profraw
+*.profdata
+htmlcov/
+lcov.info
