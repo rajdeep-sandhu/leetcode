@@ -6,7 +6,9 @@ impl Solution {
         nums.sort();
 
         for i in 1..nums.len() {
-            if nums[i] == nums[i - 1] {return true};
+            if nums[i] == nums[i - 1] {
+                return true;
+            };
         }
         false
     }
