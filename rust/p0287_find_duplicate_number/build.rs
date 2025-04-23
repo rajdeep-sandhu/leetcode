@@ -29,9 +29,8 @@ fn main() {
                         }
                         write!(
                             file,
-                            "    (crate::{0}::Solution::find_duplicate, \"{1}\")",
-                            file_stem,
-                            file_stem.replace('_', " ")
+                            "    (crate::{0}::Solution::find_duplicate, \"{0}\")",
+                            file_stem
                         ).unwrap();
                         first = false;
                     }
