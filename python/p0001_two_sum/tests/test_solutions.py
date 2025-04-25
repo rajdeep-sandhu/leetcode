@@ -17,11 +17,13 @@ SOLUTION_MODULES = [
     if not file.stem.startswith("__")
 ]
 
+
 # Load test cases
 def load_test_cases():
     """Load test cases from json"""
     with open(TEST_CASES_FILE, "r") as file:
         return json.load(file)
+
 
 TEST_CASES = load_test_cases()
 
@@ -47,17 +49,13 @@ def test_two_sum(module_name, test_case):
     result = solution.twoSum(nums, target)
 
     # Logging. Amend per problem
-    log_output = (
-        f"Input: nums={nums}, target={target}. Output: Expected={expected}, Actual={result}"
-    )
+    log_output = f"Input: nums={nums}, target={target}. Output: Expected={expected}, Actual={result}"
     print(f"[Case: {case_name}]")
     print(log_output)
 
     # Assertion: Amend per problem
-    assert (
-        result == expected
-    ), f"{module_name} [{case_name}] failed.\n{log_output}"
+    assert result == expected, f"{module_name} [{case_name}] failed.\n{log_output}"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pytest.main(["-v"])  # verbose
