@@ -12,7 +12,11 @@ class Solution:
         for i, (num, index) in enumerate(sorted_map):
             complement = target - num
 
-            j = bisect.bisect_left(sorted_map, (complement, -1), lo = i + 1)
+            # Find where complement would go in the remaining map after index i.
+            # (complement, -1) returns the leftmost occurrence of complement as -1 < any index
+            j = bisect.bisect_left(sorted_map, (complement, -1), lo=i + 1)
 
+            # Check if complement exists at index j
             if j < len(sorted_map) and sorted_map[j][0] == complement:
+                # Return the original indices 
                 return [index, sorted_map[j][1]]
