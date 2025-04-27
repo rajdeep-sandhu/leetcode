@@ -13,7 +13,12 @@ dotnet new sln -n LeetCode
 ```shell
 # From within the root folder csharp
 dotnet new classlib -n P0217_ContainsDuplicate
+
+# Add the project to the .sln file
+dotnet sln ..\LeetCode.sln add P0217_ContainsDuplicate.csproj
 ```
+
+- Update the `.csproj` file to include centralised dependencies.
 
 - Create the `Solutions` and `Test` folders.
 
