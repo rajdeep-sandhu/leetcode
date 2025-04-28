@@ -2,19 +2,13 @@
 
 ## Add a problem
 
-- Create the problem folder
+- Initialise a new `Cargo` library for the problem in the root folder. The problem folder will be created.
   
   ```shell
-  md p0217_contains_duplicate
+  cargo init --lib p0217_contains_duplicate
   ```
 
 - Add the problem folder to `members` in the `Cargo.toml` in the project root, which is `rust`.
-- Initialise a new `Cargo` library for the problem in the problem folder.
-  
-  ```shell
-  cargo init --lib
-  ```
-
 - Add the required dependencies and dev dependencies to the problem's `Cargo.toml`.
 - Add `build.rs` to the problem folder. Change the function name under `if content.contains("struct Solution")` to the function to be tested.
 
