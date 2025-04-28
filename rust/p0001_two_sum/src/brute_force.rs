@@ -11,6 +11,7 @@ impl Solution {
                 }
             }
         }
-        vec![]
+
+        unreachable!("This should not happen with valid input");
     }
 }
