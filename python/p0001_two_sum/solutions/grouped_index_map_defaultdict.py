@@ -1,4 +1,4 @@
-# Time complexity: O(n^2)
+# Time complexity: O(n)
 # Space complexity: O(n)
 
 from collections import defaultdict
