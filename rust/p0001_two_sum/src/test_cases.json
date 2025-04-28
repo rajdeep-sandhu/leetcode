@@ -1,0 +1,28 @@
+[
+    {
+        "case_name": "LeetCode Case",
+        "input": {
+            "nums": [2, 7, 11, 15],
+            "target": 9
+        },
+        "expected": [0, 1]
+    },
+
+    {
+        "case_name": "LeetCode Case",
+        "input": {
+            "nums": [3, 2, 4],
+            "target": 6
+        },
+        "expected": [1, 2]
+    },
+
+    {
+        "case_name": "LeetCode Case",
+        "input": {
+            "nums": [3, 3],
+            "target": 6
+        },
+        "expected": [0, 1]
+    }
+]
