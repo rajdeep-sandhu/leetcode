@@ -94,7 +94,7 @@ public class Tests
             var result = solution!.TwoSum(nums, target);
 
             string outputMessage = $"Input: nums = [{string.Join(", ", nums)}, target = {target}]. " +
-                $"Expected: {string.Join(", ", testCase.expected)}]. " +
+                $"Expected: [{string.Join(", ", testCase.expected)}]. " +
                 $"Actual: [{string.Join(", ", result)}].";
 
             TestContext.Out.WriteLine($"Testing {solution} [Case: {testCase.caseName}]");
