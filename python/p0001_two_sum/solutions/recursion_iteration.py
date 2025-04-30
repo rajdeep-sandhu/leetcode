@@ -11,7 +11,7 @@ class Solution:
             
             # Base case
             if i >= len(nums):
-                return None
+                return [-1]
             
             # Recursive case
             for j in range(i + 1, len(nums)):
