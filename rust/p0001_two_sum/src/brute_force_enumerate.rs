@@ -1,3 +1,6 @@
+// Time complexity: O(n^2)
+// Space complexity: O(n)
+
 pub struct Solution;
 
 impl Solution {
