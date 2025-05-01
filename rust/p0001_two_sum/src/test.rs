@@ -46,7 +46,11 @@ fn test_two_sum() {
                 "  [Case: {:?}] Input: {:?}, Expected: {:?}, Actual: {:?}",
                 test_case.case_name, test_case.input, test_case.expected, result
             );
-            assert_eq!(result, test_case.expected, "Solution '{}' failed", solution_name);
+            assert_eq!(
+                result, test_case.expected,
+                "Solution '{}' failed",
+                solution_name
+            );
         }
     }
 }

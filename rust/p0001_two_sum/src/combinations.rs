@@ -10,7 +10,7 @@ impl Solution {
         for pair in (0..nums.len()).combinations(2) {
             let [i, j]: [usize; 2] = pair.try_into().unwrap();
             if nums[i] + nums[j] == target {
-                return vec![i as i32, j as i32]
+                return vec![i as i32, j as i32];
             }
         }
         unreachable!("This should be unreachable with valid input.")

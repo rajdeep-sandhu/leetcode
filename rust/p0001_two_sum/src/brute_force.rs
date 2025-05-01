@@ -10,7 +10,7 @@ impl Solution {
 
             for j in i + 1..nums.len() {
                 if nums[j] == complement {
-                    return vec![i as i32, j as i32]
+                    return vec![i as i32, j as i32];
                 }
             }
         }
