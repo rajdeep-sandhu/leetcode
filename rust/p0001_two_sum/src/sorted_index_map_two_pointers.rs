@@ -8,7 +8,7 @@ impl Solution {
         // Sort the numbers as (number, index) tuples to preserve original indices
         let mut sorted_map: Vec<(i32, usize)> =
             nums.iter().enumerate().map(|(i, &num)| (num, i)).collect();
-        
+
         sorted_map.sort_by_key(|&(num, _)| num);
 
         let mut left: usize = 0;

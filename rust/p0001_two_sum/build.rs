@@ -1,4 +1,4 @@
-use std::{env, fs, path::Path, io::Write};
+use std::{env, fs, io::Write, path::Path};
 
 fn main() {
     // Look for solution files in the "src" folder.
@@ -9,8 +9,16 @@ fn main() {
     let mut file = fs::File::create(dest_path).unwrap();
 
     // Write a header comment.
-    writeln!(file, "// Note: IDE may suggest adding semicolons, but don't add them.").unwrap();
-    writeln!(file, "// This file is included as an expression via include! macro.").unwrap();
+    writeln!(
+        file,
+        "// Note: IDE may suggest adding semicolons, but don't add them."
+    )
+    .unwrap();
+    writeln!(
+        file,
+        "// This file is included as an expression via include! macro."
+    )
+    .unwrap();
     writeln!(file, "vec![\n").unwrap();
 
     // Iterate over all .rs files in src/
@@ -31,7 +39,8 @@ fn main() {
                             file,
                             "    (crate::{0}::Solution::two_sum, \"{0}\")", // Amend for each problem
                             file_stem
-                        ).unwrap();
+                        )
+                        .unwrap();
                         first = false;
                     }
                 }
