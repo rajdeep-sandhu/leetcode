@@ -3,6 +3,7 @@ pub mod brute_force_enumerate;
 pub mod combinations;
 pub mod grouped_index_map;
 pub mod hashmap_one_pass;
+pub mod hashmap_two_pass;
 pub mod recursion_full;
 pub mod recursion_iteration;
 pub mod sorted_index_map_binary_search;
