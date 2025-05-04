@@ -14,5 +14,21 @@
             "t": "car"
         },
         "expected": false
+    },
+    {
+        "case_name": "NeetCode Case",
+        "input": {
+            "s": "racecar",
+            "t": "carrace"
+        },
+        "expected": true
+    },
+    {
+        "case_name": "NeetCode Case",
+        "input": {
+            "s": "jar",
+            "t": "jam"
+        },
+        "expected": false
     }
 ]
