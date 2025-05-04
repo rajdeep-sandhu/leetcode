@@ -31,7 +31,7 @@ TEST_CASES = load_test_cases()
 @pytest.mark.parametrize("module_name", SOLUTION_MODULES)
 @pytest.mark.parametrize("test_case", TEST_CASES)
 # Amend test name per problem
-def test_two_sum(module_name, test_case):
+def test_isAnagram(module_name, test_case):
     module = importlib.import_module(module_name)
     solution = module.Solution()
 
@@ -50,7 +50,7 @@ def test_two_sum(module_name, test_case):
 
     # Logging. Amend per problem
     log_output = f"Input: s={s}, t={t}. Output: Expected={expected}, Actual={result}"
-    print(f"[Case: {case_name}]")
+    print(f"\n\n[Module: {module_name}, Case: {case_name}]")
     print(log_output)
 
     # Assertion: Amend per problem
