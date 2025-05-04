@@ -1,0 +1,18 @@
+[
+    {
+        "case_name": "LeetCode Case",
+        "input": {
+            "s": "anagram",
+            "t": "nagaram"
+        },
+        "expected": true
+    },
+    {
+        "case_name": "LeetCode Case",
+        "input": {
+            "s": "rat",
+            "t": "car"
+        },
+        "expected": false
+    }
+]
