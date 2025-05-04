@@ -16,6 +16,14 @@
         "expected": false
     },
     {
+        "case_name": "LeetCode Case: Unequal lengths",
+        "input": {
+            "s": "a",
+            "t": "ab"
+        },
+        "expected": false
+    },
+    {
         "case_name": "NeetCode Case",
         "input": {
             "s": "racecar",
