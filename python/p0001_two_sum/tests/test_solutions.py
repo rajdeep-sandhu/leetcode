@@ -50,7 +50,7 @@ def test_two_sum(module_name, test_case):
 
     # Logging. Amend per problem
     log_output = f"Input: nums={nums}, target={target}. Output: Expected={expected}, Actual={result}"
-    print(f"[Case: {case_name}]")
+    print(f"\n\n[Module: {module_name}, Case: {case_name}]")
     print(log_output)
 
     # Assertion: Amend per problem
