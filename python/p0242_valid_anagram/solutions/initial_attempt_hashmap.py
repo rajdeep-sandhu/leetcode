@@ -17,6 +17,9 @@ class Solution:
 
             return freq_map
 
+        if len(s) != len(t):
+            return False
+
         s_freq_map = build_hashmap(s)
         t_freq_map = build_hashmap(t)
 
