@@ -1,0 +1,42 @@
+[
+    {
+        "case_name": "LeetCode Case",
+        "input": {
+            "s": "anagram",
+            "t": "nagaram"
+        },
+        "expected": true
+    },
+    {
+        "case_name": "LeetCode Case",
+        "input": {
+            "s": "rat",
+            "t": "car"
+        },
+        "expected": false
+    },
+    {
+        "case_name": "LeetCode Case: Unequal lengths",
+        "input": {
+            "s": "a",
+            "t": "ab"
+        },
+        "expected": false
+    },
+    {
+        "case_name": "NeetCode Case",
+        "input": {
+            "s": "racecar",
+            "t": "carrace"
+        },
+        "expected": true
+    },
+    {
+        "case_name": "NeetCode Case",
+        "input": {
+            "s": "jar",
+            "t": "jam"
+        },
+        "expected": false
+    }
+]
