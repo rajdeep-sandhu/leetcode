@@ -3,7 +3,7 @@
 
 using System.Linq;
 
-namespace P0242_ValidAnagram.Solutions.HashMapFrequencyCountFunction;
+namespace P0242_ValidAnagram.Solutions.TwoHashMapFrequencyCountFunction;
 
 public class Solution
 {
