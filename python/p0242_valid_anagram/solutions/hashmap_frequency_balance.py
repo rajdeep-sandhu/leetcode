@@ -1,5 +1,6 @@
-# Time complexity: O(n)
-# Space complexity: O(n)
+# Time complexity: O(n + k log k), practically O(n) if k is small
+# Space complexity: O(k)
+# where k = number of unique characters
 
 
 class Solution:
