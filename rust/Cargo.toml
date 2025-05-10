@@ -2,6 +2,7 @@
 members = [
     "p0001_two_sum",
     "p0217_contains_duplicate",
-    "p0287_find_duplicate_number"
+    "p0242_valid_anagram",
+    "p0287_find_duplicate_number",
 ]
 resolver = "2"
