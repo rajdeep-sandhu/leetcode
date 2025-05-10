@@ -1,4 +1,4 @@
-// Time complexity: O(n + k log k), practically O(n) if k is small
+// Time complexity: O(n + k), practically O(n) if k is small
 // Space complexity: O(k)
 // where k = number of unique characters
 
