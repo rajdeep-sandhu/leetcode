@@ -1,3 +1,4 @@
+pub mod array_based_hashtable_frequency_balance;
 pub mod brute_force;
 pub mod hashmap_frequency_balance;
 pub mod sorting;
