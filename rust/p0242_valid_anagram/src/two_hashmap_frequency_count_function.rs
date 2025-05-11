@@ -1,5 +1,5 @@
-// Time complexity: 
-// Space complexity: 
+// Time complexity: O(n)
+// Space complexity: O(n)
 
 use std::collections::HashMap;
 
