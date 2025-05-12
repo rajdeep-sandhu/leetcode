@@ -2,7 +2,9 @@
 
 ## Add a problem
 
-- Initialise a new `Cargo` library for the problem in the root folder. The problem folder will be created.
+- Initialise a new `cargo` library for the problem in the root folder.
+  - This creates the problem folder with a `Cargo.toml` file.
+  - A `src` subfolder is created with a `lib.rs` file.
   
   ```shell
   cargo init --lib p0217_contains_duplicate
@@ -17,6 +19,7 @@
   - Add `test.rs`.
     - Change `Struct TestCase` to match `test_cases.json`.
     - Change `fn get_solutions() -> Vec<(fn(Vec<i32>) -> bool, &'static str)>` to match the target function's input and output types.
+  - Add `helper.rs`.
   - Add the solution to the `src` folder.
   - Add the solution as a module to `lib.rs` in the `src` folder.
 
