@@ -11,13 +11,7 @@ class Solution:
         anagram_map: dict = {}
 
         for word in strs:
-            word_sorted = "".join(sorted(word))
+            word_sorted: List = "".join(sorted(word))
+            anagram_map.setdefault(word_sorted, []).append(word)
 
-            if word_sorted in anagram_map:
-                anagram_map[word_sorted].append(word)
-            else:
-                anagram_map[word_sorted] = [word]
-
-        anagrams_grouped = [group for group in anagram_map.values()]
-
-        return anagrams_grouped
+        return list(anagram_map.values())
