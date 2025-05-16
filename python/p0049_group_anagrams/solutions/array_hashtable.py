@@ -1,6 +1,6 @@
 # Time complexity: O(n * k)
 # Space complexity: O(n * k)
-# where n = number of words, k = average length of a word
+# where n = number of words, k = length of the longest word
 
 from collections import defaultdict
 from typing import List

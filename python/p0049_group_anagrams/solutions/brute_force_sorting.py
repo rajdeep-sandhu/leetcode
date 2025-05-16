@@ -1,6 +1,6 @@
 # Time complexity: O(n * k log k)
 # Space complexity: O(n)
-# where n = number of words, k = average length of a word
+# where n = number of words, k = length of the longest word
 
 from typing import List
 
