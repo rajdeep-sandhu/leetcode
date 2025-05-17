@@ -107,7 +107,7 @@ public class Tests
 
 
             // Amend per problem.
-            string outputMessage = $"Input: strs = [{string.Join(", ",strs)}]. " +
+            string outputMessage = $"Input: strs = [{string.Join(", ", strs)}]. " +
                 $"Expected: {Helper.FormatListOfLists(testCase.expected)}. " +
                 $"Actual: {Helper.FormatListOfLists(result)}.";
 
