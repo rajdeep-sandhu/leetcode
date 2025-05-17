@@ -14,10 +14,7 @@ public class Solution
 
         foreach (String word in strs)
         {
-            // Sort the letters in word
-            char[] sChars = word.ToCharArray();
-            Array.Sort(sChars);
-            String wordSorted = new String(sChars);
+            String wordSorted = new String(word.OrderBy(letter => letter).ToArray());
 
             if (!anagramMap.ContainsKey(wordSorted))
                 anagramMap[wordSorted] = new List<String>();
@@ -25,14 +22,6 @@ public class Solution
             anagramMap[wordSorted].Add(word);
         }
 
-        // Build grouped list
-        List<List<String>> anagramsGrouped = new();
-
-        foreach (var group in anagramMap.Values)
-        {
-            anagramsGrouped.Add(group);
-        }
-
-        return anagramsGrouped.Cast<IList<String>>().ToList();
+        return anagramMap.Values.Cast<IList<String>>().ToList();
     }
 }
