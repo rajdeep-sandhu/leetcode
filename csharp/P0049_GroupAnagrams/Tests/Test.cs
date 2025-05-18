@@ -115,7 +115,7 @@ public class Tests
             TestContext.Out.WriteLine(outputMessage);
 
             Assert.That(resultSorted, Is.EqualTo(expectedSorted),
-                $"Solution {solution.GetType().Name}: failed for {outputMessage}");
+                $"Solution {solution.GetType().FullName}: failed for {outputMessage}");
         }
     }
 }
