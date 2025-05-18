@@ -1,0 +1,33 @@
+[
+  {
+    "case_name": "LeetCode Case",
+    "input": {
+      "strs": ["eat", "tea", "tan", "ate", "nat", "bat"]
+    },
+    "expected": [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]
+  },
+
+  {
+    "case_name": "LeetCode Case: Empty List",
+    "input": {
+      "strs": [""]
+    },
+    "expected": [[""]]
+  },
+
+  {
+    "case_name": "LeetCode Case: Single Element",
+    "input": {
+      "strs": ["a"]
+    },
+    "expected": [["a"]]
+  },
+
+  {
+    "case_name": "NeetCode Case",
+    "input": {
+      "strs": ["act", "pots", "tops", "cat", "stop", "hat"]
+    },
+    "expected": [["hat"], ["act", "cat"], ["stop", "pots", "tops"]]
+  }
+]
