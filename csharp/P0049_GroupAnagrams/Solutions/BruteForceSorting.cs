@@ -2,8 +2,6 @@
 // Space complexity: O(n)
 // where n = number of words, k = length of the longest word
 
-using System.Text.RegularExpressions;
-
 namespace P0049_GroupAnagrams.Solutions.BruteForceSorting;
 
 public class Solution
