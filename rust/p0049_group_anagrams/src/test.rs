@@ -1,7 +1,7 @@
 #[path = "helper.rs"]
 mod helper;
 
-use helper::InputModel;
+use helper::{InputModel, normalize};
 use rstest::rstest;
 use serde::Deserialize;
 use std::fs;
@@ -49,12 +49,16 @@ fn test_group_anagrams() {
             // Call the solution function. Amend per problem.
             let result = solution(strs);
 
+            // Normalize for comparison, as the problem allows unordered result.
+            let expected_normalized = normalize(test_case.expected.clone());
+            let result_normalized = normalize(result.clone());
+
             println!(
                 "  [Case: {:?}] Input: {:?}, Expected: {:?}, Actual: {:?}",
                 test_case.case_name, test_case.input, test_case.expected, result
             );
             assert_eq!(
-                result, test_case.expected,
+                result_normalized, expected_normalized,
                 "Solution '{}' failed",
                 solution_name
             );
