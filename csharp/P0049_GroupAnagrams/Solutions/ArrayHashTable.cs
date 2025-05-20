@@ -1,6 +1,6 @@
 // Time complexity: O(n * k)
 // Space complexity: O(n * k)
-// where n = number of words, k = length of the longest word// Space complexity: 
+// where n = number of words, k = length of the longest word
 
 namespace P0049_GroupAnagrams.Solutions.ArrayHashTable;
 
